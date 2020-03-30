@@ -1,6 +1,6 @@
 # backend
 repo is for getting started with backend
-# setting up enviorment
+# setting up environment 
 https://zarkom.net/blogs/windows-local-coding-environment-1204 \
 https://zarkom.net/blogs/linux-ubuntu-local-coding-environment-1528 \
 https://zarkom.net/blogs/mac-local-coding-environment-6283
