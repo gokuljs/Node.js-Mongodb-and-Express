@@ -20,3 +20,13 @@ http://expressjs.com/en/5x/api.html#app.listen_path_callback
 
 # npm-package.json
 https://docs.npmjs.com/files/package.json.html
+
+# npm-init and package.json
+npm init is used install package.json and all ur packages and dependencies will be stored here \
+name: package name \
+version : version format(1.0.0) \
+description : package description \
+entry point :  // refers to where ur application starts \
+author : author name \
+license : use default license \
+
