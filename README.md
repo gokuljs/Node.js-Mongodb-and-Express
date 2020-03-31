@@ -31,5 +31,9 @@ author : author name \
 license : use default license \  
 
 # alternative for always starting ur node server 
-https://www.youtube.com/watch?v=GvLvrlOqq9g&feature=youtu.be
+https://www.youtube.com/watch?v=GvLvrlOqq9g&feature=youtu.be \
+instead of always restarting ur server start ur app by using  (nodemon) and app the where u want to start should be mentioned in package.json \
+by chance if u have cloned other work from git or etc use npm i -g nodemon where i stands for install and -g stands for global  \
+wat this does is it will install all the packages from present in dependencies in package.json 
+
 
