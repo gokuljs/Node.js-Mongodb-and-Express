@@ -28,5 +28,8 @@ version : version format(1.0.0) \
 description : package description \
 entry point :  // refers to where ur application starts \
 author : author name \
-license : use default license \
+license : use default license \  
+
+# alternative for always starting ur node server 
+https://www.youtube.com/watch?v=GvLvrlOqq9g&feature=youtu.be
 
