@@ -13,6 +13,18 @@ app.get("/", function(request, respond) {
 
 });
 
+app.get("/r/:subreditname", function(request, respond) {
+    // console.log(request.params); // .params returns the subreddit name 
+    var subreddit = request.params.subreditname;
+    respond.send("you are on subredit page  " + subreddit.toUpperCase()); // built int function to change into upper case 
+
+});
+
+app.get("/r/:subreditname/comments/:id/:title/", function(request, respond) {
+    console.log(request.params); // in output section u can see all the variables 
+    respond.send("you are on comments page ");
+}); // semicolon given before a name acts as an variable 
+
 
 
 app.get("/bye", function(request, respond) {
@@ -26,7 +38,8 @@ app.get("/dog", function(request, respond) {
 });
 // this acts like an exceptional so non the get request works this will work 
 
-app.get("*", function(request, respond) { // so star (*) working when nothing else is there like dog and bye or /etc
+app.get("*", function(request, respond) { // so star (*) working when nothing else is there like dog and bye or /etc 
+    // it macthes that comes everything on the line 
     respond.send("you are a star");
 
 });
