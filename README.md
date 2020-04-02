@@ -40,3 +40,7 @@ by chance if u have cloned other work from git or etc use npm i -g nodemon where
 wat this does is it will install all the packages from present in dependencies in package.json 
 
 
+# ejs
+
+checking ejs version npm -i s ejs 
+
