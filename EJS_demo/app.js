@@ -15,8 +15,27 @@ app.get("/fallinlovewith/:name", function(req, res) {
 
     // .ejs stands for embedded javascript 
     // which lets embbed javascript code 
+});
 
+app.get("/posts", function(req, res) {
+    var posts = [{
+            title: "post 1",
+            author: "gokuljs",
 
+        },
+        {
+            title: "post 2",
+            author: "ash",
+
+        }, {
+            title: "post 3",
+            author: "dhe",
+
+        }
+
+    ];
+
+    res.render("post.ejs", { posts: posts });
 });
 app.listen(3000, function() {
     console.log("server is listening");
