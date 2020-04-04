@@ -45,4 +45,6 @@ wat this does is it will install all the packages from present in dependencies i
 checking ejs version npm -i s ejs 
 
 # API
+wat for connecting apis   /
+https://ifttt.com/
 
