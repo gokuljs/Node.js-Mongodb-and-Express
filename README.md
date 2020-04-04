@@ -46,5 +46,6 @@ checking ejs version npm -i s ejs
 
 # API
 site for connecting api \
-https://ifttt.com/
+https://ifttt.com/  \
+chrome extension for json viewer :- https://chrome.google.com/webstore/search/json%20viewer
 
