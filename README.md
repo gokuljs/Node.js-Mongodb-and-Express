@@ -48,5 +48,7 @@ checking ejs version npm -i s ejs
 site for connecting api \
 https://ifttt.com/  \
 chrome extension for json viewer :- https://chrome.google.com/webstore/search/json%20viewer  \
-http://jsonviewer.stack.hu/
+http://jsonviewer.stack.hu/ \
+curl is built in command line tool to make https request in terminal \
+syntax :- curl url
 
