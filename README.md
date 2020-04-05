@@ -52,3 +52,6 @@ http://jsonviewer.stack.hu/ \
 curl is built in command line tool to make https request in terminal \
 syntax :- curl url
 
+### simplified http request client 
+https://github.com/request/request
+
