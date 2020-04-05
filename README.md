@@ -62,3 +62,8 @@ installing npm package locus :$ npm i -D locus in windows if this debugging tool
 
 movie database api which http://www.omdbapi.com/
 
+
+# Node.js: Difference between req.query[] and req.params
+
+https://stackoverflow.com/questions/14417592/node-js-difference-between-req-query-and-req-params
+
