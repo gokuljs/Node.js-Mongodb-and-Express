@@ -55,5 +55,5 @@ syntax :- curl url
 ### simplified http request client 
 https://github.com/request/request \
 
-installing npm package locus :$ npm i -D locus
+installing npm package locus :$ npm i -D locus in windows if this debugging tool dosent work use npm i -D locus@2.0.0
 
