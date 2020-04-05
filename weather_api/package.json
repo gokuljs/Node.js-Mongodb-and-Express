@@ -10,7 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "locus": "^2.0.4",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  },
+  "devDependencies": {
+    "locus": "^2.0.4"
   }
 }
