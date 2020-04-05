@@ -24,6 +24,9 @@ http://expressjs.com/en/5x/api.html#app.listen_path_callback
 # npm-package.json
 https://docs.npmjs.com/files/package.json.html
 
+# Node.js: Difference between req.query[] and req.params
+https://stackoverflow.com/questions/14417592/node-js-difference-between-req-query-and-req-params
+
 # npm-init and package.json
 npm init is used to create package.json and all ur packages and dependencies will be stored here \
 name: package name \
