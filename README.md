@@ -45,7 +45,7 @@ wat this does is it will install all the packages from present in dependencies i
 
 # ejs
 
-checking ejs version npm -i s ejs 
+checking ejs version npm -i s ejs \
 for using body parser \
 
 
