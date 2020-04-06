@@ -46,7 +46,12 @@ wat this does is it will install all the packages from present in dependencies i
 # ejs
 
 checking ejs version npm -i s ejs 
-for using body-parser app.use(bodyparser.urlencoded({ extended: true }));
+for using body parser \
+
+
+
+var bodyParser = require("body-parser"); \
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 # API
