@@ -5,9 +5,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 var campgrounds = [
-    { name: "mountains", image: "https://lh3.googleusercontent.com/proxy/moNZl7sbmHTDLR4ox6WUmcyC--rNw-b7b5XJEQ9royBath4CV09JOjVMO5ghw-CPPrEDKg3tUPJQUlQZhOg50wtyCV6-k7zdRYF3dFrT9sexGMVuaWiYWc1PHoAAtj-XMHe9xpzodBrAf1YtB00-2ZMPasTlfG_aRg", },
-    { name: "art", image: "https://images.unsplash.com/photo-1551913902-c92207136625?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
-    { name: "pattern", image: "https://images.unsplash.com/photo-1482160549825-59d1b23cb208?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
+    { name: "Mountains", image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
+    { name: "Art", image: "https://images.unsplash.com/photo-1551913902-c92207136625?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
+    { name: "Pattern", image: "https://images.unsplash.com/photo-1482160549825-59d1b23cb208?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
 
 ];
 

@@ -2,24 +2,27 @@
     <div class="container-fluid">
 
         <header class="jumbotron">
-            <h1>Welcome to yelpcamp ! </h1>
-            <p>View our hand-picked campgrounds all over the world</p>
-            <a href="/campgrounds/new" class="btn btn-primary btn-lg">Add New Campground</a>
-
+            <div class="container-fluid">
+                <h1>Welcome to yelpcamp ! </h1>
+                <p>View our hand-picked campgrounds all over the world</p>
+                <a href="/campgrounds/new" class="btn btn-primary btn-lg">Add New Campground</a>
+            </div>
         </header>
 
 
+        <div class="row">
+            <% campgrounds.forEach(function(campground){   %>
+                <div class="col-lg-4 col-md-6 col-sm-8">
+
+                    <img src="<%= campground.image %>" class="img-thumbnail">
+
+                </div>
+
+                <% }) %>
+        </div>
 
 
-        <% campgrounds.forEach(function(campground){   %>
-            <div>
-                <h4>
-                    <%= campground["name"] %>
-                </h4>
-                <img src="<%= campground.image %> ">
-            </div>
 
-            <% }) %>
 
-                <%- include("partials/footer") %>
+        <%- include("partials/footer") %>
     </div>
