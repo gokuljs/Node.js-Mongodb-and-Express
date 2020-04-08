@@ -91,3 +91,6 @@ syntax use database name \
 show db :to show list of databases \
  show collections shows list of objects created inside the datbase 
 
+
+# Deprecation Warnings
+https://mongoosejs.com/docs/deprecations.html
