@@ -87,6 +87,6 @@ https://code.visualstudio.com/docs/azure/mongodb
 mongod : to start mongodemon \
 mongo :start database  \
 use : to create or open existing database \
-sybtax use database name \
+syntax use database name \
 show db :to show list of databases \
 
