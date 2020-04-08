@@ -77,5 +77,6 @@ https://stackoverflow.com/questions/14417592/node-js-difference-between-req-quer
 # mongodb
 ### installation
 https://www.mongodb.com/download-center/community \
-https://www.youtube.com/watch?v=FwMwO8pXfq0
+https://www.youtube.com/watch?v=FwMwO8pXfq0  \
+https://docs.mongodb.com/manual/tutorial/getting-started/
 
