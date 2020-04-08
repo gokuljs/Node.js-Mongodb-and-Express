@@ -74,3 +74,7 @@ movie database api which http://www.omdbapi.com/
 
 https://stackoverflow.com/questions/14417592/node-js-difference-between-req-query-and-req-params
 
+# mongodb
+### installation
+https://www.youtube.com/watch?v=jNxBu_HZf9Y&feature=youtu.be
+
