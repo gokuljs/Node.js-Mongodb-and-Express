@@ -81,4 +81,5 @@ https://www.mongodb.com/download-center/community \
 https://www.youtube.com/watch?v=FwMwO8pXfq0  \
 https://docs.mongodb.com/manual/tutorial/getting-started/  \
 https://code.visualstudio.com/docs/azure/mongodb
-
+#### To connect a mongo.exe shell to the MongoDB instance, open another Command Interpreter with Administrative privileges and run:
+"C:\Program Files\MongoDB\Server\4.2\bin\mongo.exe"
