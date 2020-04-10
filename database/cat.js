@@ -14,4 +14,21 @@ var catSchema = new mongoose.Schema({
 // now this model should be passed to singular variable
 // we cann use that variable to find ,remove ,create ,update 
 
-var Cat = mongoose.model("cat", catSchema);
+var cat = mongoose.model("cat", catSchema);
+
+var george = new cat({
+    name: "gokul js ",
+    age: 12,
+    temperament: "grouc,xmxmhy",
+
+});
+
+george.save(function(err, cat) { // we are saving creating a call back function to check error is there or not
+
+    if (err) {
+        console.log("something went wrong");
+    } else {
+        console.log("saved");
+        console.log(cat);
+    }
+});
