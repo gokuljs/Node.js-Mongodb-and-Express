@@ -68,27 +68,46 @@ app.get("/campgrounds", function(req, res) {
 });
 
 
+// app.post("/campgrounds", function(req, res) {
+
+//     // get data from form and add it to array 
+
+//     // var name = req.body.name;
+//     // var image = req.body.image;
+//     // console.log(name);
+//     // console.log(image);
+//     // var newcampground = {
+//     //         name: name,
+//     //         image: image,
+//     //     }
+//     //     // redirect back to campgrounds page 
+//     //     //res.send("you have enntered the post request part ");\
+//     //     // campgrounds.push(newcampground);
+//     // res.redirect("/campgrounds");
+//     res.render("you hit the post route")
+
+
+
+
+// });
+
 app.post("/campgrounds", function(req, res) {
-
-    // get data from form and add it to array 
-
     var name = req.body.name;
     var image = req.body.image;
-    console.log(name);
-    console.log(image);
     var newcampground = {
-            name: name,
-            image: image,
+        name: name,
+        img: image,
+    }
+    campground.create(newcampground, function(err, newlycreated) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.redirect("/campgrounds")
         }
-        // redirect back to campgrounds page 
-        //res.send("you have enntered the post request part ");\
-    campgrounds.push(newcampground);
-    res.redirect("/campgrounds");
-
-
-
+    });
 
 });
+
 
 app.get("/campgrounds/new", function(req, res) {
     res.render("new");
@@ -102,5 +121,5 @@ app.get("/campgrounds/new", function(req, res) {
 
 
 app.listen(3000, function() {
-    console.log("yellcamp server has satrted ")
+    console.log("yellcamp server has started  ")
 });
