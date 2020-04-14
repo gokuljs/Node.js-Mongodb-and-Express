@@ -1,23 +1,50 @@
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
+var mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost/yelpcamp");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
-var campgrounds = [
-    { name: "Mountains", image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
-    { name: "Art", image: "https://images.unsplash.com/photo-1551913902-c92207136625?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
-    { name: "Pattern", image: "https://images.unsplash.com/photo-1482160549825-59d1b23cb208?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
+//schema setup
+var campgroundschema = new mongoose.Schema({
+    name: String,
+    img: String,
+});
+
+var campground = mongoose.model("campground", campgroundschema);
+
+// campground.create({
+//     name: "Mountains",
+//     img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+// }, function(err, campground) {
+//     if (err) {
+//         console.log("err");
+//     } else {
+//         // console.log(campground);
+//         console.log(done);
+//     }
+// });
 
 
-    { name: "Mountains", image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
-    { name: "Art", image: "https://images.unsplash.com/photo-1551913902-c92207136625?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
-    { name: "Pattern", image: "https://images.unsplash.com/photo-1482160549825-59d1b23cb208?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
-    { name: "Mountains", image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
-    { name: "Art", image: "https://images.unsplash.com/photo-1551913902-c92207136625?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
-    { name: "Pattern", image: "https://images.unsplash.com/photo-1482160549825-59d1b23cb208?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
 
-];
+
+app.use(express.static("public"));
+
+// var campgrounds = [
+//     { name: "Mountains", image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
+//     { name: "Art", image: "https://images.unsplash.com/photo-1551913902-c92207136625?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
+//     { name: "Pattern", image: "https://images.unsplash.com/photo-1482160549825-59d1b23cb208?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
+
+
+//     { name: "Mountains", image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
+//     { name: "Art", image: "https://images.unsplash.com/photo-1551913902-c92207136625?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
+//     { name: "Pattern", image: "https://images.unsplash.com/photo-1482160549825-59d1b23cb208?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
+//     { name: "Mountains", image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
+//     { name: "Art", image: "https://images.unsplash.com/photo-1551913902-c92207136625?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
+//     { name: "Pattern", image: "https://images.unsplash.com/photo-1482160549825-59d1b23cb208?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
+
+// ];
 
 app.get("/", function(req, res) {
     // res.send("landing page");
@@ -25,8 +52,19 @@ app.get("/", function(req, res) {
 });
 
 app.get("/campgrounds", function(req, res) {
+    //get all campgrounds from db and render that file
 
-    res.render("campground", { campgrounds: campgrounds });
+    campground.find({}, function(err, allcampgrounds) {
+        if (err) {
+            console.log(err);
+        } else {
+
+            res.render("campground", { campgrounds: allcampgrounds })
+        }
+
+    });
+
+    // res.render("campground", { campgrounds: campgrounds });
 });
 
 
