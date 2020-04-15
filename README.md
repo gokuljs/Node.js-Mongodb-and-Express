@@ -93,4 +93,5 @@ show db :to show list of databases \
 
 
 # Deprecation Warnings
-https://mongoosejs.com/docs/deprecations.html
+https://mongoosejs.com/docs/deprecations.html \
+https://stackoverflow.com/questions/57895175/server-discovery-and-monitoring-engine-is-deprecated/57899638#57899638
