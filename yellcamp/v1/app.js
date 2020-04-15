@@ -2,7 +2,10 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/yelpcamp");
+//mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true }); // exact same syntax should be used everytime to remove the depriciated  warning 
+//27017 represents the port number in which the mongodb is working on 
+mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true, useUnifiedTopology: true });
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
