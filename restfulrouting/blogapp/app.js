@@ -36,7 +36,19 @@ var blog = mongoose.model("blog", blogschema);
 
 //Restful routes 
 app.get("/blogs", function(req, res) {
-    res.send("welcome to index page ");
+
+    // /bogs route will have all the blogs displayed 
+    // normaly we have take contenet from db and paste it into website 
+
+    blog.find({}, function(err, blog) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(blog);
+            res.render("index", { blogs: blog });
+        }
+    })
+
 
 });
 
