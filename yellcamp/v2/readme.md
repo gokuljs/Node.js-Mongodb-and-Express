@@ -8,9 +8,9 @@
 ======================================== \
 
 name    url         verb       description \
-==========================================  \
+==========================================  
 
-Index  /dogs        Get        display a list of all dog   \
+Index   /dogs        Get        display a list of all dog   \
 new    /dogs/new    get        displays form to make a new dogs   \
 create /dogs        post       and new dogs to db   \
 show   /dogs/:id    Get        shows information about one dog   \
