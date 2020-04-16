@@ -48,12 +48,13 @@ app.use(express.static("public"));
 //     { name: "Pattern", image: "https://images.unsplash.com/photo-1482160549825-59d1b23cb208?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", },
 
 // ];
-
+// displays the home page 
 app.get("/", function(req, res) {
     // res.send("landing page");
     res.render("landing")
 });
 
+// displays all the campgrounds page 
 app.get("/campgrounds", function(req, res) {
     //get all campgrounds from db and render that file
 
@@ -93,6 +94,7 @@ app.get("/campgrounds", function(req, res) {
 
 
 // });
+// creating a post request to add new campgrounds 
 
 app.post("/campgrounds", function(req, res) {
     var name = req.body.name;
@@ -111,6 +113,7 @@ app.post("/campgrounds", function(req, res) {
 
 });
 
+// form page to add new campgrounds 
 
 app.get("/campgrounds/new", function(req, res) {
     res.render("new");
