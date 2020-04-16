@@ -98,5 +98,7 @@ https://stackoverflow.com/questions/57895175/server-discovery-and-monitoring-eng
 
 
 # semantic ui
-
 https://semantic-ui.com/introduction/getting-started.html
+
+# restful routing 
+https://medium.com/@shubhangirajagrawal/the-7-restful-routes-a8e84201f206
