@@ -7,7 +7,7 @@
 4 and show route/template \
 ======================================== \
 
-name    url         verb       description \
+name    url         verb       description 
 ==========================================  
 
 Index   /dogs        Get        display a list of all dog   \

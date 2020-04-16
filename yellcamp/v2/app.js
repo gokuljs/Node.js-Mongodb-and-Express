@@ -9,11 +9,14 @@ mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true, 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
+app.use(express.static("public"));
+
+
 //schema setup
 var campgroundschema = new mongoose.Schema({
     name: String,
     img: String,
-    description: String,
+    desc: String,
 });
 
 var campground = mongoose.model("campground", campgroundschema);
@@ -21,8 +24,6 @@ var campground = mongoose.model("campground", campgroundschema);
 
 
 
-
-app.use(express.static("public"));
 
 
 app.get("/", function(req, res) {
@@ -39,7 +40,7 @@ app.get("/campgrounds", function(req, res) {
             console.log(err);
         } else {
 
-            res.render("campground", { campgrounds: allcampgrounds })
+            res.render("index", { campgrounds: allcampgrounds })
         }
 
     });
@@ -48,12 +49,16 @@ app.get("/campgrounds", function(req, res) {
 
 
 
+
 app.post("/campgrounds", function(req, res) {
     var name = req.body.name;
     var image = req.body.image;
+    var desc = req.body.description;
+    console.log(desc);
     var newcampground = {
         name: name,
         img: image,
+        desc: desc,
     }
     campground.create(newcampground, function(err, newlycreated) {
         if (err) {
@@ -72,9 +77,27 @@ app.get("/campgrounds/new", function(req, res) {
 });
 
 
+
 app.get("/campgrounds/:id", function(req, res) {
-    res.send("this will be show page one day ")
+    // res.send("this will be show page one day ")
+    console.log(req.params.id);
+    var id = req.params.id;
+    // u pass id and ur function
+    campground.findById(id, function(err, foundcampground) {
+
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(foundcampground);
+            res.render("show", { campground: foundcampground });
+        }
+
+    })
+
+    // res.render("show")
 });
+
+
 
 
 
