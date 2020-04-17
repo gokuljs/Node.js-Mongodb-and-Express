@@ -109,7 +109,7 @@ https://gulpjs.com/docs/en/getting-started/quick-start
 https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5
 
 
-# using Semantic UI as a dependency and just want to use our default theme, use our lighter semantic-ui-css or semantic-ui-less repo. If you just need the files you can download them as a zip from GitHub.
+#### using Semantic UI as a dependency and just want to use our default theme, use our lighter semantic-ui-css or semantic-ui-less repo. If you just need the files you can download them as a zip from GitHub.
 
 git clone this repo and add it ur project repo   \
 https://github.com/Semantic-Org/Semantic-UI-CSS\    \
