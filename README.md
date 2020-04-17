@@ -89,7 +89,9 @@ mongo :start database  \
 use : to create or open existing database \
 syntax use database name \
 show db :to show list of databases \
- show collections shows list of objects created inside the datbase 
+show collections shows list of objects created inside the datbase \\
+to drop database \
+https://docs.mongodb.com/manual/reference/method/db.dropDatabase/
 
 
 # Deprecation Warnings
@@ -123,4 +125,5 @@ bower install semantic-ui
 
 ## Fomantic-UI
 https://fomantic-ui.com/
+
 
