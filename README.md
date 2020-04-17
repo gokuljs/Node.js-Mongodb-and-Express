@@ -105,3 +105,5 @@ https://medium.com/@shubhangirajagrawal/the-7-restful-routes-a8e84201f206
 
 # glup.js for installing semantic-ui
 https://gulpjs.com/docs/en/getting-started/quick-start
+# problem with glup installation 
+https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5
