@@ -102,3 +102,6 @@ https://semantic-ui.com/introduction/getting-started.html
 
 # restful routing 
 https://medium.com/@shubhangirajagrawal/the-7-restful-routes-a8e84201f206
+
+# glup.js for installing semantic-ui
+https://gulpjs.com/docs/en/getting-started/quick-start
