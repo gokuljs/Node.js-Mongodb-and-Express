@@ -114,3 +114,10 @@ https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5
 git clone this repo and add it ur project repo   \
 https://github.com/Semantic-Org/Semantic-UI-CSS\    \
 and connect it ot semantic.min.css file in partials/header.ejs file 
+
+
+## best way to install semantic-ui rather than using npm 
+npm install -g bower --save //installing bower components \
+
+bower install semantic-ui
+
