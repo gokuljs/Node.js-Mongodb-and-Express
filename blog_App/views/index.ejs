@@ -1,1 +1,14 @@
-<h1>welcome to index page </h1>
+<%- include("partials/header.ejs") %>
+    <% blogs.forEach(function(blogs) {  %>
+
+        <h1>
+            <%= blogs.title %>
+        </h1>
+        <img src="<%= blogs.image %> ">
+        <p>
+            <%= blogs.description %>
+        </p>
+        <% }) %>
+
+
+            <%- include("partials/footer.ejs") %>

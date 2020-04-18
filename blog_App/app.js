@@ -7,8 +7,33 @@ app.set("view engine", "ejs");
 mongoose.connect("mongodb://localhost:27017/blog_app", { useNewUrlParser: true, useUnifiedTopology: true });
 app.use(bodyparser.urlencoded({ extended: true }));
 
+var blogschema = new mongoose.Schema({
+    title: String,
+    image: String,
+    description: String,
+    created: { type: Date, default: Date.now },
+
+
+});
+
+var blog = mongoose.model("blog", blogschema);
+
+// blog.create({
+//     title: "Test blog",
+//     image: "https://images.unsplash.com/photo-1587133599421-40a3cd84831b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80",
+//     description: "mac book only fools will buy",
+// });
+
 app.get("/blogs", function(req, res) {
-    res.render("index");
+
+    blog.find({}, function(err, blog) {
+        if (err) {
+            console.log(err);
+        } else {
+
+            res.render("index", { blogs: blog });
+        }
+    });
 
 });
 
