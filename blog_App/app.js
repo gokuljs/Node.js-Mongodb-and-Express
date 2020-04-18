@@ -10,7 +10,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 var blogschema = new mongoose.Schema({
     title: String,
     image: String,
-    description: String,
+    body: String,
     created: { type: Date, default: Date.now },
 
 
@@ -21,10 +21,11 @@ var blog = mongoose.model("blog", blogschema);
 // blog.create({
 //     title: "Test blog",
 //     image: "https://images.unsplash.com/photo-1587133599421-40a3cd84831b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80",
-//     description: "mac book only fools will buy",
+//     body: "mac book only fools will buy",
 // });
 
 // index route 
+
 app.get("/blogs", function(req, res) {
 
     blog.find({}, function(err, blog) {
@@ -54,9 +55,21 @@ app.post("/blogs", function(req, res) {
     })
 });
 
+
 app.get("/blogs/new", function(req, res) {
     res.render("new");
 });
+
+app.get("/blogs/:id", function(req, res) {
+    blog.findById(req.params.id, function(err, foundblog) {
+        if (err) {
+            res.redirect("/blogs");
+        } else {
+            res.render("show", { blogs: foundblog });
+        }
+    })
+});
+
 
 app.listen(3000, function() {
     console.log("server has started");
