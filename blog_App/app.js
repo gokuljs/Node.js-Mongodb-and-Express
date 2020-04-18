@@ -24,6 +24,7 @@ var blog = mongoose.model("blog", blogschema);
 //     description: "mac book only fools will buy",
 // });
 
+// index route 
 app.get("/blogs", function(req, res) {
 
     blog.find({}, function(err, blog) {
@@ -37,6 +38,25 @@ app.get("/blogs", function(req, res) {
 
 });
 
+// new route
+app.post("/blogs", function(req, res) {
+    // res.send("you have reached post request ");
+    // create blog
+    // redirect the web page 
+    console.log(req.body.blog);
+
+    blog.create(req.body.blog, function(err, blog) {
+        if (err) {
+            console.log(err)
+        } else {
+            res.redirect("/blogs")
+        }
+    })
+});
+
+app.get("/blogs/new", function(req, res) {
+    res.render("new");
+});
 
 app.listen(3000, function() {
     console.log("server has started");

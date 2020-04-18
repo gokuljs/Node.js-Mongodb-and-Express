@@ -1,5 +1,6 @@
 /* body {
     background-color: black;
+    color: aliceblue;
 } */
 
 i.icon {
@@ -8,6 +9,19 @@ i.icon {
     margin-right: 4px;
 }
 
-body {
-    background-color: black;
+.container.segment {
+    margin-top: 9.0em;
+}
+
+
+/* 
+ui.header {
+    text-align: center;
+} */
+
+h2.ui.header {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    color: blueviolet;
+    font-size: 50px;
 }
