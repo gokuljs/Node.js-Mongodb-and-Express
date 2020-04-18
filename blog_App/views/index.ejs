@@ -6,8 +6,10 @@
         </h1>
         <img src="<%= blogs.image %> ">
         <p>
-            <%= blogs.body%>
+            <%= blogs.body.substring(0,100)%>
         </p>
+
+        <!-- this is to print first 100 words of the letter  -->
         <a href="/blogs/<%= blogs._id %> ">read more</a>
         <% }) %>
 
