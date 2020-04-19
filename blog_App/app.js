@@ -70,6 +70,19 @@ app.get("/blogs/:id", function(req, res) {
     })
 });
 
+app.get("/blogs/:id/edit", function(req, res) {
+    console.log("id =" + req.params.id);
+    blog.findById(req.params.id, function(err, foundblog) {
+        if (err) {
+            res.redirect("/blogs");
+        } else {
+            res.render("edit", { blog: foundblog });
+        }
+
+    });
+
+});
+
 
 app.listen(3000, function() {
     console.log("server has started");
