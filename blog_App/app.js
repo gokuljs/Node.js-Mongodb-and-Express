@@ -12,6 +12,9 @@ app.set("view engine", "ejs");
 mongoose.connect("mongodb://localhost:27017/blog_app", { useNewUrlParser: true, useUnifiedTopology: true });
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(methodOverride("_method")); // this tells us that where ever in ur app if _method then treat that request has put request 
+mongoose.set('useFindAndModify', false); // use this line to avoid certain depriciated warnings
+//(node:10068) DeprecationWarning: Mongoose: `findOneAndUpdate()` and `findOneAndDelete()` without the `useFindAndModify` option set to false are deprecated. See: https://mongoosejs.com/docs/deprecations.html#findandmodify
+
 
 
 var blogschema = new mongoose.Schema({
@@ -102,7 +105,17 @@ app.get("/blogs/:id/edit", function(req, res) {
 
 
 app.put("/blogs/:id", function(req, res) {
-    res.send("update route")
+    // res.send("update route")
+    // blog.findByIdAndUpdate(id,newdata,callback)
+    blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, foundblog) {
+
+        if (err) {
+            res.redirect("/blogs");
+        } else {
+            res.redirect("/blogs/" + req.params.id);
+        }
+
+    });
 });
 
 
