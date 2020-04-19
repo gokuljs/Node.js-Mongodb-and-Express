@@ -3,8 +3,8 @@
         <h2 class="ui header">Edit
             <%= blog.title %>
         </h2>
-
-        <form class="ui form" action="/blogs" method="POST">
+        <!-- below is they way to handel put request  -->
+        <form class="ui form" action="/blogs/<%= blog._id %>?_method=PUT" method="POST">
             <div class="field">
                 <label id="test">Title</label>
                 <input type="text" name="blog[title]" placeholder="title" value="<%= blog.title %> ">
