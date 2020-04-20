@@ -3,6 +3,7 @@ var app = express();
 var bodyparser = require("body-parser");
 var mongoose = require("mongoose");
 var methodOverride = require("method-override");
+var expressSanitizer = require("express-sanitizer");
 
 
 
@@ -11,6 +12,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 mongoose.connect("mongodb://localhost:27017/blog_app", { useNewUrlParser: true, useUnifiedTopology: true });
 app.use(bodyparser.urlencoded({ extended: true }));
+app.use(expressSanitizer()); // this config should be always used after using 
 app.use(methodOverride("_method")); // this tells us that where ever in ur app if _method then treat that request has put request 
 mongoose.set('useFindAndModify', false); // use this line to avoid certain depriciated warnings
 //(node:10068) DeprecationWarning: Mongoose: `findOneAndUpdate()` and `findOneAndDelete()` without the `useFindAndModify` option set to false are deprecated. See: https://mongoosejs.com/docs/deprecations.html#findandmodify
@@ -55,7 +57,8 @@ app.post("/blogs", function(req, res) {
     // create blog
     // redirect the web page 
     console.log(req.body.blog);
-
+    console.log("===============================");
+    console.log(req.body);
     blog.create(req.body.blog, function(err, blog) {
         if (err) {
             console.log(err)
@@ -103,10 +106,12 @@ app.get("/blogs/:id/edit", function(req, res) {
 // there is another function called method override 
 
 
-
+// update route 
 app.put("/blogs/:id", function(req, res) {
     // res.send("update route")
     // blog.findByIdAndUpdate(id,newdata,callback)
+    req.body.blog.body = req.sanitize(req.body.blog.body);
+
     blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, foundblog) {
 
         if (err) {
