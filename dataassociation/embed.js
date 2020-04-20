@@ -20,10 +20,56 @@ var post = mongoose.model("post", postSchema);
 
 var userSchema = new mongoose.Schema({
     name: String,
-    email: String,
-    posts: [postSchema],
+    email: String, // inthe user schema there is an post attribute 
+    posts: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "post"
+    }],
 });
+
 var user = mongoose.model("user", userSchema);
+
+
+
+post.create({
+
+    title: "create burger pt2 mcdonalds ",
+    content: " bugughihfisakvkfnsfnknfsfnsalkflksalak                  akkk",
+
+
+}, function(err, post) {
+
+
+    user.findOne({ email: "luffy@gmail.com" }, function(err, founduser) {
+        if (err) {
+            console.log(err);
+        } else {
+
+            founduser.posts.push(post);
+            founduser.save(function(err, data) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log(data);
+                }
+            });
+
+        }
+    });
+    // if (err) {
+    //     console.log(err);
+    // } else {
+    //     console.log(post);
+    // }
+});
+
+// user.create({
+//     name: "luffy",
+//     email: "luffy@gmail.com",
+
+// })
+
+
 
 
 // var newuser = new user({
@@ -58,23 +104,23 @@ var user = mongoose.model("user", userSchema);
 // })
 
 
-user.findOne({ name: "dheeraj" }, function(err, user) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log(user);
-        user.posts.push({
-            title: "3 thing i really are",
-            content: "gamer, coder , changer",
-        });
+// user.findOne({ name: "dheeraj" }, function(err, user) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log(user);
+//         user.posts.push({
+//             title: "3 thing i really are",
+//             content: "gamer, coder , changer",
+//         });
 
-        user.save(function(err, user) {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log(user);
-            }
-        });
-    }
+//         user.save(function(err, user) {
+//             if (err) {
+//                 console.log(err);
+//             } else {
+//                 console.log(user);
+//             }
+//         });
+//     }
 
-});
+// });
