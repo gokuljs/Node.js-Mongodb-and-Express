@@ -31,37 +31,37 @@ var user = mongoose.model("user", userSchema);
 
 
 
-post.create({
+// post.create({
 
-    title: "create burger pt2 mcdonalds ",
-    content: " bugughihfisakvkfnsfnknfsfnsalkflksalak                  akkk",
-
-
-}, function(err, post) {
+//     title: "create burger pt2 mcdonalds ",
+//     content: " bugughihfisakvkfnsfnknfsfnsalkflksalak                  akkk",
 
 
-    user.findOne({ email: "luffy@gmail.com" }, function(err, founduser) {
-        if (err) {
-            console.log(err);
-        } else {
+// }, function(err, post) {
 
-            founduser.posts.push(post);
-            founduser.save(function(err, data) {
-                if (err) {
-                    console.log(err);
-                } else {
-                    console.log(data);
-                }
-            });
 
-        }
-    });
-    // if (err) {
-    //     console.log(err);
-    // } else {
-    //     console.log(post);
-    // }
-});
+//     user.findOne({ email: "luffy@gmail.com" }, function(err, founduser) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+
+//             founduser.posts.push(post);
+//             founduser.save(function(err, data) {
+//                 if (err) {
+//                     console.log(err);
+//                 } else {
+//                     console.log(data);
+//                 }
+//             });
+
+//         }
+//     });
+// if (err) {
+//     console.log(err);
+// } else {
+//     console.log(post);
+// }
+// });
 
 // user.create({
 //     name: "luffy",
