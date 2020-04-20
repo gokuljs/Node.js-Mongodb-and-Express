@@ -118,6 +118,21 @@ app.put("/blogs/:id", function(req, res) {
     });
 });
 
+// Delete route
+app.delete("/blogs/:id", function(req, res) {
+    // destroy blog 
+
+    blog.findByIdAndRemove(req.params.id, function(err) {
+        if (err) {
+            res.redirect("/blogs");
+        } else {
+            res.redirect("/blogs");
+        }
+    });
+    //redirect somewhere
+
+});
+
 
 app.listen(3000, function() {
     console.log("server has started");

@@ -25,6 +25,15 @@
         </div>
 
 
+        <a class="ui olive button" href="/blogs/<%= blogs._id %>/edit"> EDIT </a>
+        <form id="delete" action="/blogs/<%= blogs._id %>?_method=DELETE " method="POST">
+            <button class="negative ui button">Delete</button>
+        </form>
+        <!-- <form method="POST" action="/blogs/?_method=DELETE">
+
+        </form> -->
+
+
     </div>
 
 
