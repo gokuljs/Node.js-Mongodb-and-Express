@@ -145,7 +145,7 @@ Database seeding is the initial seeding of a database with data. Seeding a datab
 https://stackoverflow.com/questions/13546519/what-does-the-terminology-database-seeding-mean
 
 
-#Error Driven Development 
+# Error Driven Development 
 
 <p>
   Error Driven Development is a pun on Test Driven Development. So besides writing tests, you should more importantly, write errors! And by errors I mean that the program should "throw" an error when something is wrong. ... To make a bug free program, it should crash at any opportunity, on all kind of errors 
