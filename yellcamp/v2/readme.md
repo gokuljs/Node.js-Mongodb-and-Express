@@ -17,3 +17,18 @@ show   /dogs/:id    Get        shows information about one dog   \
 // it gives the dogs value based on the id value    
 
 ===========================================
+
+
+       routes
+index /campgrounds
+new   /campgrounds/new 
+create /camprounds 
+show   / campgrounds/:id
+
+
+# nested routes 
+
+coming to comment section
+
+New        campgrounds/:id/comments/new 
+Create     campgrounds/:id/comments
