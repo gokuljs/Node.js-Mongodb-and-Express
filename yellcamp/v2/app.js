@@ -5,7 +5,7 @@ var mongoose = require("mongoose");
 
 
 var campground = require("./models/campground");
-// var comment = require("./models/comment");
+var comment = require("./models/comment");
 var seeddb = require("./seeds");
 
 
@@ -92,7 +92,7 @@ app.get("/campgrounds/:id", function(req, res) {
     console.log(req.params.id);
     var id = req.params.id;
     // u pass id and ur function
-    campground.findById(id, function(err, foundcampground) {
+    campground.findById(id).populate("comments").exec(function(err, foundcampground) {
 
         if (err) {
             console.log(err);

@@ -8,4 +8,12 @@
     <p>
         <%= campground.desc %>
     </p>
-    <%- include("partials/footer") %>
+
+    <% campground.comments.forEach(function(comment){%>
+        <P>
+            <strong> <%= comment.author %> </strong>-
+            <%= comment.text %>
+        </P>
+
+        <% }); %>
+            <%- include("partials/footer") %>
