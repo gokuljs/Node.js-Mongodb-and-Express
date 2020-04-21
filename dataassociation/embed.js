@@ -3,65 +3,47 @@ var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/embeddeddata", { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useFindAndModify', false);
 
+var post = require("./models/post");
+var user = require("./models/user");
 
 // user having email and name 
 
 
-var postSchema = mongoose.Schema({
-    title: String,
-    content: String,
 
+
+
+
+post.create({
+
+    title: "create burger pt2 mcdonalds ",
+    content: " bugughihfisakvkfnsfnknfsfnsalkflksalak                  akkk",
+
+
+}, function(err, post) {
+
+
+    user.findOne({ email: "luffy@gmail.com" }, function(err, founduser) {
+        if (err) {
+            console.log(err);
+        } else {
+
+            founduser.posts.push(post);
+            founduser.save(function(err, data) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log(data);
+                }
+            });
+
+        }
+    });
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(post);
+    }
 });
-// post will have title and content
-
-
-
-var post = mongoose.model("post", postSchema);
-
-var userSchema = new mongoose.Schema({
-    name: String,
-    email: String, // inthe user schema there is an post attribute 
-    posts: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "post"
-    }],
-});
-
-var user = mongoose.model("user", userSchema);
-
-
-
-// post.create({
-
-//     title: "create burger pt2 mcdonalds ",
-//     content: " bugughihfisakvkfnsfnknfsfnsalkflksalak                  akkk",
-
-
-// }, function(err, post) {
-
-
-//     user.findOne({ email: "luffy@gmail.com" }, function(err, founduser) {
-//         if (err) {
-//             console.log(err);
-//         } else {
-
-//             founduser.posts.push(post);
-//             founduser.save(function(err, data) {
-//                 if (err) {
-//                     console.log(err);
-//                 } else {
-//                     console.log(data);
-//                 }
-//             });
-
-//         }
-//     });
-// if (err) {
-//     console.log(err);
-// } else {
-//     console.log(post);
-// }
-// });
 
 // user.create({
 //     name: "luffy",

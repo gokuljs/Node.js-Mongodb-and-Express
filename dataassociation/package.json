@@ -9,8 +9,12 @@
   "author": "gokul js",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "ejs": "^3.0.2",
+    "exports": "0.0.1",
     "express": "^4.17.1",
-    "mongoose": "^5.9.9"
+    "module": "^1.2.5",
+    "mongoose": "^5.9.9",
+    "require": "^2.4.20"
   }
 }
