@@ -134,3 +134,12 @@ https://materializecss.com/getting-started.html
 https://stackify.com/node-js-module-exports/
 
 
+
+# seeding the datatbase means
+<p>
+Database seeding is the initial seeding of a database with data. Seeding a database is a process in which an initial set of data is   provided to a database when it is being installed. ... The data can be dummy data or necessary data such as an initial administrator account.
+  
+</p>
+
+
+
