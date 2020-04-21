@@ -2,6 +2,15 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+
+
+var campground = require("./models/campground");
+// var comment = require("./models/comment");
+var seeddb = require("./seeds");
+
+
+seeddb();
+
 // exact same syntax should be used everytime to remove the depriciated  warning 
 //27017 represents the port number in which the mongodb is working on 
 mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true, useUnifiedTopology: true });
@@ -13,13 +22,13 @@ app.use(express.static("public"));
 
 
 //schema setup
-var campgroundschema = new mongoose.Schema({
-    name: String,
-    img: String,
-    desc: String,
-});
+// var campgroundschema = new mongoose.Schema({
+//     name: String,
+//     img: String,
+//     desc: String,
+// });
 
-var campground = mongoose.model("campground", campgroundschema);
+// var campground = mongoose.model("campground", campgroundschema);
 
 
 
