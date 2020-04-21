@@ -1,11 +1,13 @@
- var mongoose = require("mongoose");
+var mongoose = require("mongoose");
 
- // putting all campground logic into into campground.js
+var campgroundSchema = new mongoose.Schema({
+    name: String,
+    image: String,
+    description: String,
+    comments: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment"
+    }]
+});
 
- var campgroundschema = new mongoose.Schema({
-     name: String,
-     img: String,
-     desc: String,
- });
-
- module.exports = mongoose.model("campground", campgroundschema);
+module.exports = mongoose.model("Campground", campgroundSchema);

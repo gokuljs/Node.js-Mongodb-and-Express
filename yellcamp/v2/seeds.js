@@ -1,7 +1,7 @@
 // error drivem devlopment 
 var mongoose = require("mongoose");
 var campground = require("./models/campground");
-var comment = require("./models/comment");
+var comment = require("./models")
 
 
 // campground.remove({}, function(err) {
@@ -56,7 +56,7 @@ function seeddb() {
                             if (err) {
                                 console.log(err);
                             } else {
-                                campground.comments.push(comments);
+                                campground.comments.push(comment);
                                 campground.save();
                                 console.log("created new comment");
                             }

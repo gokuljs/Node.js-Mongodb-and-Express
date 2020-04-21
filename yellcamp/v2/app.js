@@ -9,7 +9,7 @@ var campground = require("./models/campground");
 var seeddb = require("./seeds");
 
 
-seeddb();
+seeddb(); // beacause of this we have to export a function 
 
 // exact same syntax should be used everytime to remove the depriciated  warning 
 //27017 represents the port number in which the mongodb is working on 
