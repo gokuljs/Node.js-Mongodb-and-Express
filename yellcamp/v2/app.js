@@ -128,12 +128,25 @@ app.post("/campgrounds/:id/comments", function(req, res) {
     // lockup campground using id 
     // create new comment to campground 
     // redirect back to show page 
-
+    console.log(req.params.id);
     campground.findById(req.params.id, function(err, campground) {
         if (err) {
             console.log(err);
             res.redirect("/campgrounds");
+        } else {
+
         }
+        console.log(req.body.comment);
+        comment.create(req.body.create, function(err, comment) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(comment);
+                campground.comments.push(comment);
+                campground.save()
+                    // res.redirect("/campground/" + campground._id);
+            }
+        })
 
     });
 });
