@@ -124,7 +124,19 @@ app.get("/campgrounds/:id/comments/new", function(req, res) {
         }
     })
 })
+app.post("/campgrounds/:id/comments", function(req, res) {
+    // lockup campground using id 
+    // create new comment to campground 
+    // redirect back to show page 
 
+    campground.findById(req.params.id, function(err, campground) {
+        if (err) {
+            console.log(err);
+            res.redirect("/campgrounds");
+        }
+
+    });
+});
 
 
 
