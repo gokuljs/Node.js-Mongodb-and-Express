@@ -1,4 +1,10 @@
 .row {
-    padding: 50px;
+    padding-left: 100px;
     text-align: center;
+    margin-top: 0px;
+    margin-left: 10px;
+}
+
+#column {
+    margin-top: 100px;
 }
