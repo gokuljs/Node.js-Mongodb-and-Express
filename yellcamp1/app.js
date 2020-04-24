@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var campgroundschema = new mongoose.Schema({
     name: String,
     image: String,
+    desc: String,
 
 });
 
@@ -27,6 +28,7 @@ var campground = mongoose.model("campground", campgroundschema);
 // campground.create({
 //     name: "first Schema",
 //     image: "https://images.unsplash.com/photo-1587605135886-2a3ba0ec581c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1354&q=80",
+//     desc: "testing my first schema by adding description and checking it works or not",
 // }, function(err, campground) {
 
 //     if (err) {
@@ -71,7 +73,7 @@ app.get("/campgrounds", function(req, res) {
             console.log(err);
         } else {
 
-            res.render("campground", { campgrounds: campgrounds });
+            res.render("index", { campgrounds: campgrounds });
             console.log("done");
 
         }
@@ -90,11 +92,13 @@ app.post("/campgrounds", function(req, res) {
 
     var name = req.body.name;
     var image = req.body.image;
+    var description = req.body.description;
     console.log(name);
     console.log(image);
     var newcampground = {
         name: name,
         image: image,
+        desc: description,
     }
     campground.create(newcampground, function(err, campground) {
 
@@ -120,6 +124,40 @@ app.post("/campgrounds", function(req, res) {
 app.get("/campgrounds/new", function(req, res) {
     res.render("new");
 });
+
+// show page 
+// it is the page that displays more information of one campground 
+
+app.get("/campgrounds/:id", function(req, res) {
+
+    // capture that id 
+    // render the show page with that id
+    console.log(req.params.id);
+    campground.findById(req.params.id, function(err, foundcampground) {
+
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("show", { campground: foundcampground });
+        }
+
+    });
+
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
 app.listen(3000, function() {
     console.log("server has started");
 
