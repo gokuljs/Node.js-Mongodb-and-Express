@@ -84,6 +84,9 @@ https://code.visualstudio.com/docs/azure/mongodb
 #### To connect a mongo.exe shell to the MongoDB instance, open another Command Interpreter with Administrative privileges and run:
 "C:\Program Files\MongoDB\Server\4.2\bin\mongo.exe" \
 
+## mongodb commands link
+https://docs.mongodb.com/manual/reference/method/db.dropDatabase/
+
 mongod : to start mongodemon \
 mongo :start database  \
 use : to create or open existing database \
