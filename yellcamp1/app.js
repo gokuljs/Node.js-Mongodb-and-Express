@@ -42,6 +42,8 @@ app.post("/campgrounds", function(req, res) {
 
     var name = req.body.name;
     var image = req.body.image;
+    console.log(name);
+    console.log(image);
     var newcampground = {
         name: name,
         image: image,
