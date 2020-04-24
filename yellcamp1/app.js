@@ -1,27 +1,59 @@
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
+var mongoose = require("mongoose");
 
 
 
 // app config
+mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true, useUnifiedTopology: true });
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var campgrounds = [
 
-    { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
-    { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
-    { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
-    { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
+// creating a new schema 
 
-    { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
-    { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
-    { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
-    { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
+var campgroundschema = new mongoose.Schema({
+    name: String,
+    image: String,
 
-];
+});
+
+
+var campground = mongoose.model("campground", campgroundschema);
+
+
+// campground.create({
+//     name: "first Schema",
+//     image: "https://images.unsplash.com/photo-1587605135886-2a3ba0ec581c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1354&q=80",
+// }, function(err, campground) {
+
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log("created ");
+//         console.log(campground);
+//     }
+
+// });
+
+
+
+
+// var campgrounds = [
+
+//     { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
+//     { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
+//     { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
+//     { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
+
+//     { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
+//     { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
+//     { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
+//     { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
+
+// ];
 
 
 
@@ -32,7 +64,23 @@ app.get("/", function(req, res) {
 
 app.get("/campgrounds", function(req, res) {
 
-    res.render("campground", { campgrounds: campgrounds });
+    // getting all the data from database 
+
+    campground.find({}, function(err, campgrounds) {
+        if (err) {
+            console.log(err);
+        } else {
+
+            res.render("campground", { campgrounds: campgrounds });
+            console.log("done");
+
+        }
+    })
+
+
+    // the rendering the file 
+
+
 })
 
 
@@ -48,9 +96,20 @@ app.post("/campgrounds", function(req, res) {
         name: name,
         image: image,
     }
+    campground.create(newcampground, function(err, campground) {
 
-    campgrounds.push(newcampground);
-    res.redirect("/campgrounds");
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(campground);
+            console.log("got created");
+            res.redirect("/campgrounds");
+        }
+
+    })
+
+    // campgrounds.push(newcampground);
+
     // get data from form add to the campground array
     // redirect back to campgrounds page 
 
