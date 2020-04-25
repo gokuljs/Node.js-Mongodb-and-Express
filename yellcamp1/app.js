@@ -31,7 +31,7 @@ app.get("/campgrounds", function(req, res) {
             console.log(err);
         } else {
 
-            res.render("index", { campgrounds: campgrounds });
+            res.render("campgrounds/index", { campgrounds: campgrounds });
             console.log("done");
 
         }
@@ -80,7 +80,7 @@ app.post("/campgrounds", function(req, res) {
 
 
 app.get("/campgrounds/new", function(req, res) {
-    res.render("new");
+    res.render("campgrounds/new");
 });
 
 // show page 
@@ -98,7 +98,7 @@ app.get("/campgrounds/:id", function(req, res) {
         } else {
             console.log("foundcampground")
             console.log(foundcampground);
-            res.render("show", { campground: foundcampground });
+            res.render("campgrounds/show", { campground: foundcampground });
         }
 
     });
@@ -107,6 +107,13 @@ app.get("/campgrounds/:id", function(req, res) {
 
 })
 
+// ============================================================
+// comment routes
+// ======================================================
+
+app.get("/campgrounds/:id/comments/new", function(req, res) {
+    res.render("comments/new");
+})
 
 
 
