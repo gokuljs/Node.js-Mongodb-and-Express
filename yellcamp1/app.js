@@ -112,8 +112,22 @@ app.get("/campgrounds/:id", function(req, res) {
 // ======================================================
 
 app.get("/campgrounds/:id/comments/new", function(req, res) {
-    res.render("comments/new");
-})
+    console.log(req.params.id);
+    campground.findById(req.params.id, function(err, foundcampgroud) {
+        if (err) {
+            console.log(err);
+        } else {
+            // console.log(foundcampground);
+            console.log(foundcampgroud);
+            // res.send("hello");
+            res.render("comments/new", { campground: foundcampgroud });
+        }
+
+    });
+
+
+});
+
 
 
 
