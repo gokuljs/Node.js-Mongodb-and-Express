@@ -3,10 +3,13 @@ var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var campground = require("./models/campground")
+var seeddb = require("./seeds")
 
 
 
 // app config
+
+seeddb();
 mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true, useUnifiedTopology: true });
 app.set("view engine", "ejs");
 app.use(express.static("public"));
