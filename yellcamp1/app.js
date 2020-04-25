@@ -16,43 +16,6 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-// creating a new schema 
-
-
-
-// campground.create({
-//     name: "first Schema",
-//     image: "https://images.unsplash.com/photo-1587605135886-2a3ba0ec581c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1354&q=80",
-//     desc: "testing my first schema by adding description and checking it works or not",
-// }, function(err, campground) {
-
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log("created ");
-//         console.log(campground);
-//     }
-
-// });
-
-
-
-
-// var campgrounds = [
-
-//     { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
-//     { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
-//     { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
-//     { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
-
-//     { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
-//     { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
-//     { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
-//     { name: "gokul", image: "https://images.unsplash.com/photo-1587563136951-8276088e9725?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" },
-
-// ];
-
-
 
 app.get("/", function(req, res) {
     res.render("landing")
@@ -128,11 +91,13 @@ app.get("/campgrounds/:id", function(req, res) {
     // capture that id 
     // render the show page with that id
     console.log(req.params.id);
-    campground.findById(req.params.id, function(err, foundcampground) {
+    campground.findById(req.params.id).populate("comments").exec(function(err, foundcampground) {
 
         if (err) {
             console.log(err);
         } else {
+            console.log("foundcampground")
+            console.log(foundcampground);
             res.render("show", { campground: foundcampground });
         }
 
