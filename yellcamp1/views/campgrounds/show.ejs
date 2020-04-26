@@ -2,8 +2,11 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-3 col-md-3">
-                <p class="lead">Yelp camp</p>
+            <div class="col-lg-3">
+                <p class="lead">
+                    Yelpcamp
+                </p>
+
                 <ul class="list-group">
                     <li class="list-group-item active">Cras justo odio</li>
                     <li class="list-group-item">Dapibus ac facilisis in</li>
@@ -11,51 +14,67 @@
                     <li class="list-group-item">Porta ac consectetur ac</li>
                     <li class="list-group-item">Vestibulum at eros</li>
                 </ul>
-
             </div>
+
             <div class="col-md-9">
-                <div class="card mb-3" style="width: 1300px; height:30em; ">
-                    <img style="width: 100%;height:100%;" class="card-img-top" src="<%=campground.image %> alt=" Card image cap ">
-                    <div class="card-body ">
-                        <div class="container-fluid ">
-                        <h3 class="card-title "><a class="float-left "href="# "><%= campground.name %></a></h3>
-                      <p class="float-right font-weight-bold ">$9.99 <br/></p>
-                      <br/>
-                      <br/>
-                     </div>
-                      <p class="card-text ">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longerThe purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages with meaningless filler text can be very useful when the focus is meant to be on design, not content.
-
-                        The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software. Today it's seen all around the web; on templates, websites, and stock designs. Use our generator to get your own, or read on for the authoritative history of lorem ipsum.
-                        
-                        Origins and Discovery
-                        Lorem ipsum began as scrambled, nonsensical Latin derived from Cicero's 1st-century BC text De Finibus Bonorum .</p>
-                      <p class="card-text "><small class="text-muted ">Last updated 3 mins ago</small></p>
+                <div class="container-fluid border temp">
+                    <img class="imgsize img-thumbnail img-fluid" src="<%= campground.image %>">
+                    <div class="container-fluid">
+                        <p class="title">
+                            <a href="#" class="float-left">
+                                <%= campground.name %>
+                            </a>
+                        </p>
+                        <p class="float-right font-weight-bold price ">$9.99/day
+                            <p>
+                                </br>
                     </div>
-                  </div>
-                  
-            </div>
-        </div>
-    </div>
-    <h1>
-        <%= campground.name %>
-    </h1>
-
-    <img src="<%=campground.image %>">
-
-                    <p>
+                    <p style="padding:0 5 5 5;">
+                        </br>
                         <%= campground.desc %>
                     </p>
+                    </br>
+                </div>
 
-                    <p>
-                        <a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add new comment</a> </p>
+                <sectiont style="margin-top: 30px;">
 
-                    <% campground.comments.forEach(function(data){ %>
-                        <p><strong><%= data.author %></strong> -
-                            <%= data.text %>
+
+
+                    <div class="container-fluid border" style="widt:100%; height: 80px; margin-top: 20px;">
+
+                        <p>ckjsgfsshhf Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque reiciendis illum sapiente impedit consectetur odit tempore et quam, ad, omnis similique optio unde laborum excepturi consequuntur alias quas ratione neque.
                         </p>
 
+                    </div>
 
-                        <% }) %>
+                    </section>
+            </div>
+        </div>
 
 
-                            <%- include("../partials/footer") %>
+    </div>
+
+
+
+
+
+
+
+    <%- include("../partials/footer") %>
+
+        <!-- 
+
+    <% campground.comments.forEach(function(data){ %>
+        <p><strong><%= data.author %></strong> -
+            <%= data.text %>
+        </p>
+
+
+        <% }) %>
+
+            <div class="well">Basic Well</div>
+
+
+            </body>
+
+            </html> -->
