@@ -14,3 +14,16 @@
     padding-right: 20px;
     font-size: 25px;
 }
+
+.main {
+    padding: 0px;
+    margin-left: 0px;
+    margin-right: 25px;
+    margin-top: 20px;
+}
+
+.comment {
+    margin-top: 20px;
+    margin-left: 1070px;
+    margin-right: 30px;
+}
