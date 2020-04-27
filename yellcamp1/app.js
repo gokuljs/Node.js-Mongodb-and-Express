@@ -13,7 +13,10 @@ var seeddb = require("./seeds")
 seeddb();
 mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true, useUnifiedTopology: true });
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
+// dirname refers to the directory name to the script was running 
+console.log(__dirname);
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
