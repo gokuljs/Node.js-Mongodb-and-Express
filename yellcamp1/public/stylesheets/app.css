@@ -1,3 +1,24 @@
+/* campground/index.ejs page styling  */
+
+.indexcontainer {
+    margin-bottom: 30px;
+}
+
+.indeximage {
+    padding: 0px;
+    height: auto;
+}
+
+.indextitle {
+    padding: 9px;
+}
+
+.indexdesc {
+    padding: 10px;
+    text-align: center;
+    width: auto;
+}
+
 .row {
     padding-left: 100px;
     text-align: center;
@@ -16,11 +37,6 @@ img {
     height: 250px;
 }
 
-.card {
-    height: 440px;
-    width: 400px;
-}
-
 .navbar {
     margin-top: -11px;
     margin-bottom: 11px;
@@ -31,7 +47,7 @@ body {
 }
 
 
-/* this styles related to comment section  */
+/* campgrounds show.ejs file  */
 
 .imgsize {
     background-size: cover;
