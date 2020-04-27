@@ -17,8 +17,8 @@
             </div>
 
             <div class="col-md-9">
-                <div class="container-fluid border temp">
-                    <img class="imgsize img-thumbnail img-fluid" src="<%= campground.image %>">
+                <div class="container-fluid border" style="padding: 0px;border-radius: 20px;">
+                    <img class="img-thumbnail img-fluid border imgsize" src="<%= campground.image %>">
                     <div class="container-fluid">
                         <p class="title">
                             <a href="#" class="float-left">
@@ -28,31 +28,31 @@
                         <p class="float-right font-weight-bold price ">$9.99/day
                             <p>
                                 </br>
+
+                                <p style="text-align: left;padding-left: 12px;padding-right: 6px;">
+                                    </br>
+                                    <%= campground.desc %>
+                                </p>
                     </div>
-                    <p style="padding:0 5 5 5;">
-                        </br>
-                        <%= campground.desc %>
-                    </p>
                     </br>
                 </div>
 
                 <sectiont style="margin-top: 30px;">
-                    <div class="container-fluid list-group-item-dark">
+                    <div class="container-fluid list-group-item-dark" style="border-radius: 10px;">
 
                         <div class="d-flex flex-row-reverse list-group-item-dark bd-highlight comment1 ">
                             <div>
                                 <a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add new comment</a>
                             </div>
                         </div>
+                        <hr>
 
 
                         <% campground.comments.forEach(function(data){ %>
 
                             <div class="row" style="padding-left: 0px;">
                                 <div class="col-md-12">
-                                    <h4 class="float-left">
-                                        <%= data.author %>
-                                    </h4>
+                                    <Strong class="float-left text-uppercase"><%=data.author %></Strong>
                                     <span class="float-right">10 days ago</span>
                                 </div>
                                 <div class="col-md-12">
@@ -60,7 +60,7 @@
 
                                         <%= data.text %>
                                     </p>
-
+                                    <hr>
                                 </div>
                             </div>
                             <% }) %>
