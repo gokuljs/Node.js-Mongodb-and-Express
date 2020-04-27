@@ -161,5 +161,7 @@ https://stackoverflow.com/questions/13546519/what-does-the-terminology-database-
  # Authentication (!important) 
  refer this video for complete understanding of nodejs authentication https://www.youtube.com/watch?v=i7of02icPyQ&feature=youtu.be&t=35 \
  
+ ### passport.js
+ http://www.passportjs.org/
 
 
