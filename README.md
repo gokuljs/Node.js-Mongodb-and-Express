@@ -84,6 +84,9 @@ https://code.visualstudio.com/docs/azure/mongodb
 #### To connect a mongo.exe shell to the MongoDB instance, open another Command Interpreter with Administrative privileges and run:
 "C:\Program Files\MongoDB\Server\4.2\bin\mongo.exe" \
 
+
+#
+
 ## mongodb commands link
 https://docs.mongodb.com/manual/reference/method/db.dropDatabase/
 
@@ -153,5 +156,10 @@ https://stackoverflow.com/questions/13546519/what-does-the-terminology-database-
 <p>
   Error Driven Development is a pun on Test Driven Development. So besides writing tests, you should more importantly, write errors! And by errors I mean that the program should "throw" an error when something is wrong. ... To make a bug free program, it should crash at any opportunity, on all kind of errors 
  </p>
+ 
+ 
+ # Authentication (!important) 
+ refer this video for complete understanding of nodejs authentication https://www.youtube.com/watch?v=i7of02icPyQ&feature=youtu.be&t=35 \
+ 
 
 
