@@ -92,7 +92,33 @@ body {
     padding: 0px;
 }
 
-.comment-wrapper .panel-body {
+.showcol1 {
+    padding-left: 0px;
+    padding-right: 9px;
+}
+
+.show2 {
+    padding: 0px;
+    border-radius: 20px;
+}
+
+.showdesc {
+    text-align: left;
+    padding-left: 12px;
+    padding-right: 6px;
+}
+
+.show-comment {
+    margin-top: 30px;
+}
+
+.showrow {
+    padding-left: 0px;
+}
+
+
+/* 
+.comment-wrapper .panel-bodymargin-top: 30px; {
     max-height: 650px;
     overflow: auto;
 }
@@ -106,4 +132,4 @@ body {
 .comment-wrapper .media-list .media {
     border-bottom: 1px dashed #efefef;
     margin-bottom: 25px;
-}
+} */

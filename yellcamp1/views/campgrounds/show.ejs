@@ -2,7 +2,7 @@
 
     <div class="container-fluid border" style="padding: 20px;">
         <div class="row">
-            <div class="col-md-3" style="padding-left: 0px; padding-right: 9px;">
+            <div class="col-md-3 showcol1">
                 <p class="lead">
                     Yelpcamp
                 </p>
@@ -17,7 +17,7 @@
             </div>
 
             <div class="col-md-9">
-                <div class="container-fluid border" style="padding: 0px;border-radius: 20px;">
+                <div class="container-fluid border show2">
                     <img class="img-thumbnail img-fluid border imgsize" src="<%= campground.image %>">
                     <div class="container-fluid">
                         <p class="title">
@@ -29,7 +29,7 @@
                             <p>
                                 </br>
 
-                                <p style="text-align: left;padding-left: 12px;padding-right: 6px;">
+                                <p class="showdesc">
                                     </br>
                                     <%= campground.desc %>
                                 </p>
@@ -37,7 +37,7 @@
                     </br>
                 </div>
 
-                <sectiont style="margin-top: 30px;">
+                <sectiont class="show-comment">
                     <div class="container-fluid list-group-item-dark" style="border-radius: 10px;">
 
                         <div class="d-flex flex-row-reverse list-group-item-dark bd-highlight comment1 ">
@@ -50,7 +50,7 @@
 
                         <% campground.comments.forEach(function(data){ %>
 
-                            <div class="row" style="padding-left: 0px;">
+                            <div class="row showrow">
                                 <div class="col-md-12">
                                     <Strong class="float-left text-uppercase"><%=data.author %></Strong>
                                     <span class="float-right">10 days ago</span>
