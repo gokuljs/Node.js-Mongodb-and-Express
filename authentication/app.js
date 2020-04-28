@@ -25,9 +25,22 @@ app.use(passport.session())
 
 // adding express-seesion
 // using it and running it has a fucntion
-app.use("express-session" ({
+app.use(require("express-session")({
+    secret: "welcome to node",
+    resave: false,
+    saveUninitialized: false,
+}));
 
-}))
+
+// very important methods on passport 
+// responsible for reading the session that is encoded 
+// unencoding it that comes under deserialize
+// this methods are directly added into user.js in models when you pass passport local mongoose
+
+passport.serializeUser(user.serializeUser());
+passport.deserializeUser(user.deserializeUser());
+
+
 
 
 
