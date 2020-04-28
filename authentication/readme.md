@@ -2,7 +2,7 @@
 * for authentication to work the http rquesst should become stateful request this can be done by using sessions 
 
 
-## package required
+## packagemk required
 
 * express 
 * ejs

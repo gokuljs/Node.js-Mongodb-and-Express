@@ -17,6 +17,7 @@ app.use(express.static(__dirname + "/public"));
 // dirname refers to the directory name to the script was running 
 console.log(__dirname);
 
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
