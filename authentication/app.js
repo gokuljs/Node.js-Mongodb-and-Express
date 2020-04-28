@@ -56,13 +56,35 @@ app.get("/register", function(req, res) {
     res.render("register");
 })
 
+// handling user signup 
+
 app.post("/register", function(req, res) {
     // var username = req.body.username;
     // var password = req.body.password;
     console.log(req.body.username);
     console.log(req.body.password);
-    res.send("you reached post route");
-    // major place where your going to handle user sign up 
+    // res.send("you reached post route");
+    // major place where your going to handle user sign up
+    req.body.password // returns password from register,js
+    req.body.username // returns username from ""
+        // we make new user object and pass only username because dont save the password to database 
+        // we sent password seperately as an second argument for user.register  it will hash that password that is srored into database 
+    user.register(new user({ username: req.body.username }), req.body.password, function(err, user) {
+        if (err) {
+            console.log(err);
+            return res.render('register');
+        } else {
+            // here we are passing local startergy 
+            // new future if u want to run stratergy like google or twitter etc
+            // refer the passport.js docs and convert local to google etc and run 
+            passport.authenticate("local")(req, res, function() {
+                res.redirect("/secret");
+
+            });
+
+        }
+    });
+
 
 })
 
