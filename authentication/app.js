@@ -27,6 +27,8 @@ app.use(passport.session())
 // using it and running it has a fucntion
 app.use(require("express-session")({
     secret: "welcome to node",
+    // by default this should be false
+
     resave: false,
     saveUninitialized: false,
 }));
