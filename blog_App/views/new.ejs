@@ -1,0 +1,31 @@
+<%- include("partials/header") %>
+    <div class="ui text container segment">
+        <h2 class="ui header">New Blog</h2>
+
+        <form class="ui form" action="/blogs" method="POST">
+            <div class="field">
+                <label id="test">Title</label>
+                <input type="text" name="blog[title]" placeholder="title">
+            </div>
+            <div class="field">
+                <label id="test">Image</label>
+                <input type="text" name="blog[image]" placeholder="image-url">
+            </div>
+
+            <div class="field">
+                <label id="test">Text</label>
+                <textarea name="blog[body]"></textarea>
+            </div>
+
+            <button class="ui inverted violet button" type="submit ">Submit</button>
+        </form>
+        <!--if we give blog[body] What this will do is, instead of making the value for title available directly from req.body.title it will put it inside of an object, like so: req.body.blog.title 
+
+-->
+        <!-- Now all of the values from the inputs in the form get added into one object (req.body.blog) and you can easily input that data into the database simply by passing in req.body.blog to Blog.create()
+
+ -->
+
+    </div>
+
+    <%- include("partials/footer") %>
