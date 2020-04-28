@@ -44,6 +44,32 @@ passport.deserializeUser(user.deserializeUser());
 
 
 
+//===========================================================================================
+// routes session 
+// auth routes 
+
+// this is to show sign up form 
+
+app.get("/register", function(req, res) {
+    res.render("register");
+})
+
+app.post("/register", function(req, res) {
+    // var username = req.body.username;
+    // var password = req.body.password;
+    console.log(req.body.username);
+    console.log(req.body.password);
+    res.send("you reached post route");
+    // major place where your going to handle user sign up 
+
+})
+
+
+
+
+
+
+
 
 app.get("/", function(req, res) {
     res.render("home");
