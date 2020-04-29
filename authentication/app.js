@@ -34,13 +34,14 @@ app.use(require("express-session")({
 }));
 
 
+passport.use(new localStrategy(user.authenticate())); // this is for login authenticate to work 
+// new localstratergy is the variable we passed satrte    localStrategy = require("passport-local"),
+
+
 // very important methods on passport 
 // responsible for reading the session that is encoded 
 // unencoding it that comes under deserialize
 // this methods are directly added into user.js in models when you pass passport local mongoose
-passport.use(new localStrategy(user.authenticate())); // this is for login authenticate to work 
-// new localstratergy is the variable we passed satrte    localStrategy = require("passport-local"),
-
 passport.serializeUser(user.serializeUser());
 passport.deserializeUser(user.deserializeUser());
 
@@ -82,7 +83,7 @@ app.post("/register", function(req, res) {
             // new future if u want to run stratergy like google or twitter etc
             // refer the passport.js docs and convert local to google etc and run 
             passport.authenticate("local")(req, res, function() {
-                res.redirect("/secret");
+                res.redirect("/login");
 
             });
 
@@ -112,6 +113,10 @@ app.post("/login", passport.authenticate('local', {
     console.log("authentication successful");
 
 });
+
+// logout 
+
+
 
 
 
