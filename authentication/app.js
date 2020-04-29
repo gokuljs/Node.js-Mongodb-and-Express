@@ -53,6 +53,16 @@ passport.deserializeUser(user.deserializeUser());
 
 //===========================================================================================
 // routes session 
+
+app.get("/", function(req, res) {
+    res.render("home");
+});
+
+app.get("/secret", isLoggedIn, function(req, res) {
+    res.render("secret");
+});
+
+// ==============================================================================
 // auth routes 
 
 // this is to show sign up form 
@@ -115,24 +125,27 @@ app.post("/login", passport.authenticate('local', {
 });
 
 // logout 
-
-
-
-
-
-
-
-
-
-app.get("/", function(req, res) {
-    res.render("home");
-});
-
-app.get("/secret", function(req, res) {
-    res.render("secret");
+app.get("/logout", function(req, res) {
+    // res.send("you will get logged out soon");
+    req.logout();
+    res.redirect("/");
 })
 
 
+
+
+// creating a middle ware to check wheather the user has logged in or not 
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) {
+        //req.isAuthenticated() will return true if user is logged in
+        next();
+    } else {
+        res.redirect("/login");
+    }
+
+
+}
 
 
 
