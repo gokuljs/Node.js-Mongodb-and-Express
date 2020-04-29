@@ -38,9 +38,13 @@ app.use(require("express-session")({
 // responsible for reading the session that is encoded 
 // unencoding it that comes under deserialize
 // this methods are directly added into user.js in models when you pass passport local mongoose
+passport.use(new localStrategy(user.authenticate())); // this is for login authenticate to work 
+// new localstratergy is the variable we passed satrte    localStrategy = require("passport-local"),
 
 passport.serializeUser(user.serializeUser());
 passport.deserializeUser(user.deserializeUser());
+
+
 
 
 
@@ -88,6 +92,26 @@ app.post("/register", function(req, res) {
 
 })
 
+
+// staring with login section and authentication
+
+app.get("/login", function(req, res) {
+    res.render("login");
+});
+// giving passport.autheticate two major things 
+// one his the statergy type and secong is the object 
+// here the passport.authentication acts as an middleware
+// middleware is something that runs before the callback function
+app.post("/login", passport.authenticate('local', {
+    successRedirect: "/secret",
+    failureRedirect: "/login",
+
+}), function(req, res) {
+    // console.log(req.body.username);
+    // console.log(req.body.password);
+    console.log("authentication successful");
+
+});
 
 
 
