@@ -129,7 +129,7 @@ npm install -g bower --save //installing bower components \
 
 bower install semantic-ui
 
-## Fomantic-UI
+## Fomantic-UI an alternate for semantic-ui
 https://fomantic-ui.com/  \
 
 # Materialize
