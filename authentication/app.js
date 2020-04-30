@@ -135,17 +135,28 @@ app.get("/logout", function(req, res) {
 
 
 // creating a middle ware to check wheather the user has logged in or not 
-
 function isLoggedIn(req, res, next) {
+    console.log("authenticated");
+
     if (req.isAuthenticated()) {
-        //req.isAuthenticated() will return true if user is logged in
-        next();
-    } else {
-        res.redirect("/login");
+        console.log("authenticated");
+        return next();
     }
-
-
+    res.redirect("/login");
 }
+
+
+
+// function isLoggedIn(req, res, next) {
+//     if (req.isAuthenticated()) {
+//         //req.isAuthenticated() will return true if user is logged in
+//         next();
+//     } else {
+//         res.redirect("/login");
+//     }
+
+
+// }
 
 
 
