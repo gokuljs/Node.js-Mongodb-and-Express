@@ -137,7 +137,7 @@ app.get("/campgrounds/:id", function(req, res) {
 // comment routes
 // ======================================================
 
-app.get("/campgrounds/:id/comments/new", function(req, res) {
+app.get("/campgrounds/:id/comments/new", isLoggedIn, function(req, res) {
     console.log(req.params.id);
     campground.findById(req.params.id, function(err, foundcampgroud) {
         if (err) {
@@ -240,7 +240,22 @@ app.post("/login", passport.authenticate('local', {
     console.log("login")
 });
 
+//logout route 
+app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
+});
 
+
+// creating a middle ware to ccheck that user has logged in or not 
+function isLoggedIn(req, res, next) {
+    console.log("authentication starting")
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect("/login");
+
+}
 
 
 app.listen(3000, function() {
