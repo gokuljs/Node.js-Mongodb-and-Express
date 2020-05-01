@@ -24,6 +24,24 @@ console.log(__dirname);
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+// passport configuration 
+app.use(require("express-session")({
+    secret: "i have msi laptop",
+    resave: false,
+    saveUninitialized: false,
+
+
+}));
+app.use(passport.initialize());
+// So basically passport.initialize() initialises the authentication module.
+// passport.session() is another middleware that alters the request object and change the 'user' value that is currently the session id (from the client cookie) into the true deserialized user object. It is explained in detail here.
+app.use(passport.session());
+passport.use(new localStratergy(user.authenticate()));
+passport.serializeUser(user.serializeUser());
+passport.deserializeUser(user.deserializeUser());
+
+
+
 
 app.get("/", function(req, res) {
     res.render("landing")
@@ -71,7 +89,7 @@ app.post("/campgrounds", function(req, res) {
         if (err) {
             console.log(err);
         } else {
-            console.log(campground);
+            // console.log(campground);
             console.log("got created");
             res.redirect("/campgrounds");
         }
@@ -105,7 +123,7 @@ app.get("/campgrounds/:id", function(req, res) {
             console.log(err);
         } else {
             console.log("foundcampground")
-            console.log(foundcampground);
+                // console.log(foundcampground);
             res.render("campgrounds/show", { campground: foundcampground });
         }
 
@@ -126,7 +144,8 @@ app.get("/campgrounds/:id/comments/new", function(req, res) {
             console.log(err);
         } else {
             // console.log(foundcampground);
-            console.log(foundcampgroud);
+            // console.log(foundcampgroud);
+
             // res.send("hello");
             res.render("comments/new", { campground: foundcampgroud });
         }
@@ -145,13 +164,13 @@ app.post("/campgrounds/:id/comments", function(req, res) {
             console.log(err);
             res.redirect("/campgrounds");
         } else {
-            console.log(foundcampground);
+            // console.log(foundcampground);
             console.log(req.body.comment);
             comment.create(req.body.comment, function(err, comment) {
                 if (err) {
                     console.log(err);
                 } else {
-                    console.log(comment);
+                    // console.log(comment);
                     foundcampground.comments.push(comment);
                     foundcampground.save();
                     console.log(foundcampground);
@@ -174,7 +193,19 @@ app.post("/campgrounds/:id/comments", function(req, res) {
 
 
 
+// ======================================================================
+// auth routes
+// ===================================================================
 
+// show the register form 
+app.get("/register", function(req, res) {
+    // res.send("welcome to register form ");
+    res.render("register")
+})
+
+app.post("/register", function(req, res) {
+    res.send("you have reached post route")
+})
 
 
 
