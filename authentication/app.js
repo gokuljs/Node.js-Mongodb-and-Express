@@ -15,8 +15,6 @@ app.set("view engine", "ejs");
 app.use(bodyparser.urlencoded({ extended: true }));
 //setting to use passport in the project
 //below two lines are required to run the passport in the project  
-app.use(passport.initialize()); // telling express to use passport
-app.use(passport.session())
 
 // app.use(express.static(__dirname + "/public"));
 // dirname refers to the directory name to the script was running 
@@ -26,13 +24,26 @@ app.use(passport.session())
 // adding express-seesion
 // using it and running it has a fucntion
 app.use(require("express-session")({
-    secret: "welcome to node",
-    // by default this should be false
+    // secret: "welcome to node",
+    // // by default this should be false
 
-    resave: false,
-    saveUninitialized: false,
+    // resave: false,
+    // saveUninitialized: false,
+    secret: 'secrettexthere',
+    saveUninitialized: true,
+    resave: true,
+
+    // using store session on MongoDB using express-session + connect
+
+
 }));
 
+// this two below lines should come after requireing express session
+// two know more visit this site 
+// https://stackoverflow.com/questions/29111571/passports-req-isauthenticated-always-returning-false-even-when-i-hardcode-done
+
+app.use(passport.initialize()); // telling express to use passport
+app.use(passport.session())
 
 passport.use(new localStrategy(user.authenticate())); // this is for login authenticate to work 
 // new localstratergy is the variable we passed satrte    localStrategy = require("passport-local"),
@@ -136,7 +147,7 @@ app.get("/logout", function(req, res) {
 
 // creating a middle ware to check wheather the user has logged in or not 
 function isLoggedIn(req, res, next) {
-    console.log("authenticated");
+    console.log("just started authenticated");
 
     if (req.isAuthenticated()) {
         console.log("authenticated");
