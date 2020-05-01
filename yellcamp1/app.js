@@ -229,11 +229,15 @@ app.get("/login", function(req, res) {
 });
 
 //app,post("routes",middleware,callback)
-app.post("/login", passport.authenticate("local", {
+app.post("/login", passport.authenticate('local', {
     successRedirect: "/campgrounds",
     failureRedirect: "/login",
 }), function(req, res) {
     // res.send("reached login page");
+    console.log("getting ur username and password");
+    console.log(req.body.username);
+    console.log(req.body.password);
+    console.log("login")
 });
 
 
