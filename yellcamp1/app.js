@@ -23,6 +23,12 @@ console.log(__dirname);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(function(req, res, next) {
+    // we are passing newuser to all the templates available 
+    res.locals.currentuser = req.user;
+    next();
+})
+
 
 // passport configuration 
 app.use(require("express-session")({
@@ -44,6 +50,7 @@ passport.deserializeUser(user.deserializeUser());
 
 
 app.get("/", function(req, res) {
+    console.log(req.user); // this shows all the users that are currently logged in
     res.render("landing")
 });
 
@@ -51,13 +58,14 @@ app.get("/", function(req, res) {
 app.get("/campgrounds", function(req, res) {
 
     // getting all the data from database 
+    console.log(req.user);
 
     campground.find({}, function(err, campgrounds) {
         if (err) {
             console.log(err);
         } else {
 
-            res.render("campgrounds/index", { campgrounds: campgrounds });
+            res.render("campgrounds/index", { campgrounds: campgrounds, currentuser: req.user });
             console.log("done");
 
         }
@@ -155,8 +163,8 @@ app.get("/campgrounds/:id/comments/new", isLoggedIn, function(req, res) {
 
 });
 
-
-app.post("/campgrounds/:id/comments", function(req, res) {
+// we are adding login middle ware because 
+app.post("/campgrounds/:id/comments", isLoggedIn, function(req, res) {
 
     console.log(req.params.id);
     campground.findById(req.params.id, function(err, foundcampground) {
@@ -243,7 +251,7 @@ app.post("/login", passport.authenticate('local', {
 //logout route 
 app.get("/logout", function(req, res) {
     req.logout();
-    res.redirect("/");
+    res.redirect("/campgrounds");
 });
 
 

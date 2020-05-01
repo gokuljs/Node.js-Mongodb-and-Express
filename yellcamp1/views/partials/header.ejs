@@ -26,16 +26,32 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/register">Sign up</a>
-                </li>
+                <!-- suedo code -->
+                <!-- if no user we show login and signup -->
+                <!-- else logout -->
+                <%   if(!currentuser){ %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Sign up</a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Sign in</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Sign in</a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout">log out</a>
-                </li>
+                    <%  }else{ %>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Signed in as
+                                <%= currentuser.username %></a>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">log out</a>
+                        </li>
+
+                        <%     } %>
+
         </div>
     </nav>
