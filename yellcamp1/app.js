@@ -204,10 +204,37 @@ app.get("/register", function(req, res) {
 })
 
 app.post("/register", function(req, res) {
-    res.send("you have reached post route")
+    console.log("getting ur username and password");
+    console.log(req.body.username);
+    console.log(req.body.password);
+    // res.send("you have reached post route");
+    var newuser = new user({
+        username: req.body.username,
+    })
+    user.register(newuser, req.body.password, function(err, user) {
+        if (err) {
+            console.log(err);
+            return res.render("register");
+        }
+        passport.authenticate("local")(req, res, function() {
+            res.redirect("/campgrounds");
+        })
+    });
 })
 
 
+// login 
+app.get("/login", function(req, res) {
+    res.render("login");
+});
+
+//app,post("routes",middleware,callback)
+app.post("/login", passport.authenticate("local", {
+    successRedirect: "/campgrounds",
+    failureRedirect: "/login",
+}), function(req, res) {
+    // res.send("reached login page");
+});
 
 
 
