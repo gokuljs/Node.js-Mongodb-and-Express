@@ -27,6 +27,12 @@ console.log(__dirname);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(function(req, res, next) {
+    // we are passing newuser to all the templates available 
+    res.locals.currentuser = req.user;
+    next();
+})
+
 
 // passport configuration 
 app.use(require("express-session")({
@@ -59,8 +65,6 @@ app.use(function(req, res, next) {
 app.use(campgroundroutes);
 app.use(commentroutes);
 app.use(indexroutes);
-
-
 
 
 

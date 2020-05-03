@@ -2,9 +2,11 @@ var express = require("express");
 var router = express.Router();
 var campground = require("../models/campground");
 var comment = require("../models/comment");
+
 // ============================================================
 // comment routes
 // ======================================================
+
 
 router.get("/campgrounds/:id/comments/new", isLoggedIn, function(req, res) {
     console.log(req.params.id);
@@ -25,8 +27,9 @@ router.get("/campgrounds/:id/comments/new", isLoggedIn, function(req, res) {
 });
 
 
-router.post("/campgrounds/:id/comments", function(req, res) {
 
+router.post("/campgrounds/:id/comments", function(req, res) {
+    // we are adding login middle ware because 
     console.log(req.params.id);
     campground.findById(req.params.id, function(err, foundcampground) {
         if (err) {
@@ -58,6 +61,8 @@ router.post("/campgrounds/:id/comments", function(req, res) {
 
 
 });
+
+
 
 function isLoggedIn(req, res, next) {
     console.log("authentication starting")
