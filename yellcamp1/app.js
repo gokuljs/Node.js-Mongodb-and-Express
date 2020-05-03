@@ -40,6 +40,17 @@ passport.use(new localStratergy(user.authenticate()));
 passport.serializeUser(user.serializeUser());
 passport.deserializeUser(user.deserializeUser());
 
+// this method is for making current user work for all other webpages 
+
+
+app.use(function(req, res, next) {
+    res.locals.currentuser = req.user; //
+    //what ever we put inside reslocals thats is available inside our templates 
+    next();
+    //next is require to run the next middle ware 
+
+});
+
 
 
 
@@ -51,13 +62,15 @@ app.get("/", function(req, res) {
 app.get("/campgrounds", function(req, res) {
 
     // getting all the data from database 
+    console.log(req.user);
 
     campground.find({}, function(err, campgrounds) {
+        console.log(req.user);
         if (err) {
             console.log(err);
         } else {
 
-            res.render("campgrounds/index", { campgrounds: campgrounds });
+            res.render("campgrounds/index", { campgrounds: campgrounds, currentuser: req.user });
             console.log("done");
 
         }
