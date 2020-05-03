@@ -55,6 +55,7 @@ app.use(function(req, res, next) {
 
 });
 
+// refactoring takes place
 app.use(campgroundroutes);
 app.use(commentroutes);
 app.use(indexroutes);
