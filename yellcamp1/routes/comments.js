@@ -43,11 +43,20 @@ router.post("/campgrounds/:id/comments", isLoggedIn, function(req, res) {
                     console.log(err);
                 } else {
                     // console.log(comment);
-                    console.log("current user who is logged in ");
-                    console.log(req.user.username);
+                    console.log("current user who is logged in " + req.user.username);
+                    // console.log(req.user.username); // this is working because of the authentication taking place in the username 
+                    comment.author.id = req.user.id;
+                    comment.author.username = req.user.username;
+                    console.log("printing out comment.author.username");
+
+                    console.log(comment.author.username);
+                    comment.save();
+                    console.log("your comment looks like");
+                    console.log(comment);
                     foundcampground.comments.push(comment);
                     foundcampground.save();
-                    console.log(foundcampground);
+
+                    // console.log(foundcampground);
                     res.redirect("/campgrounds/" + foundcampground._id);
                 }
             });
