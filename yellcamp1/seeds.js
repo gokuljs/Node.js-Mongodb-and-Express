@@ -32,36 +32,39 @@ function seeddb() {
 
 
     campground.remove({}, function(err) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("data has been removed from database");
-            data.forEach(function(data) {
-                campground.create(data, function(err, campground) {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        console.log(campground);
-                        console.log("added new campgroud");
-                        comment.create({
-                            text: "this bike looks great",
-                            author: "gokul js",
-                        }, function(err, comment) {
-                            if (err) {
-                                console.log(err);
-                            } else {
-                                campground.comments.push(comment);
-                                campground.save();
-                                console.log("new comment created");
-                            }
-                        });
-                    }
-                });
+        // if (err) {
+        //     console.log(err);
+        // } else {
+        //     console.log("data has been removed from database");
+        //     data.forEach(function(data) {
+        //         campground.create(data, function(err, campground) {
+        //             if (err) {
+        //                 console.log(err);
+        //             } else {
+        //                 console.log(campground);
+        //                 console.log("added new campgroud");
+        //                 comment.create({
+        //                     text: "this bike looks great",
+        //                     author: "gokul js",
+        //                 }, function(err, comment) {
+        //                     if (err) {
+        //                         console.log(err);
+        //                     } else {
+        //                         campground.comments.push(comment);
+        //                         campground.save();
+        //                         console.log("new comment created");
+        //                     }
+        //                 });
+        //             }
+        //         });
 
 
-            });
+        //     });
 
-        }
+        // }
+
+        // after this will remove everything from database
+
     });
 
     // after removing add new 

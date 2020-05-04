@@ -17,7 +17,7 @@ var commentroutes = require("./routes/comments"),
 
 // app config
 
-seeddb();
+// seeddb();
 mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true, useUnifiedTopology: true });
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));

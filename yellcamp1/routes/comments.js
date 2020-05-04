@@ -28,7 +28,7 @@ router.get("/campgrounds/:id/comments/new", isLoggedIn, function(req, res) {
 
 
 
-router.post("/campgrounds/:id/comments", function(req, res) {
+router.post("/campgrounds/:id/comments", isLoggedIn, function(req, res) {
     // we are adding login middle ware because 
     console.log(req.params.id);
     campground.findById(req.params.id, function(err, foundcampground) {
@@ -43,6 +43,8 @@ router.post("/campgrounds/:id/comments", function(req, res) {
                     console.log(err);
                 } else {
                     // console.log(comment);
+                    console.log("current user who is logged in ");
+                    console.log(req.user.username);
                     foundcampground.comments.push(comment);
                     foundcampground.save();
                     console.log(foundcampground);
