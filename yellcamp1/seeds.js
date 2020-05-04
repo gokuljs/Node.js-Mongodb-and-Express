@@ -45,14 +45,13 @@ function seeddb() {
         //                 console.log("added new campgroud");
         //                 comment.create({
         //                     text: "this bike looks great",
-        //                     author: "gokul js",
-        //                 }, function(err, comment) {
+        //                }, function(err, comment) {
         //                     if (err) {
         //                         console.log(err);
         //                     } else {
         //                         campground.comments.push(comment);
         //                         campground.save();
-        //                         console.log("new comment created");
+        //                         console.log("new comment created");.,c.;,;,c;x,;x,;x,cx;,cx;,cx,
         //                     }
         //                 });
         //             }
