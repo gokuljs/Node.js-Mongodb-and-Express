@@ -27,19 +27,25 @@ router.get("/campgrounds", function(req, res) {
 })
 
 
-router.post("/campgrounds", function(req, res) {
+router.post("/campgrounds", isLoggedIn, function(req, res) {
 
     // res.send("you hit the post route ");
 
     var name = req.body.name;
     var image = req.body.image;
     var description = req.body.description;
+    console.log(req.user); //  which only works if user is only logged in 
     console.log(name);
     console.log(image);
+    var author = {
+        id: req.user._id,
+        username: req.user.username,
+    }
     var newcampground = {
         name: name,
         image: image,
         desc: description,
+        author: author,
     }
     campground.create(newcampground, function(err, campground) {
 
@@ -48,6 +54,7 @@ router.post("/campgrounds", function(req, res) {
         } else {
             // console.log(campground);
             console.log("got created");
+            console.log(campground);
             res.redirect("/campgrounds");
         }
 
@@ -62,7 +69,7 @@ router.post("/campgrounds", function(req, res) {
 });
 
 
-router.get("/campgrounds/new", function(req, res) {
+router.get("/campgrounds/new", isLoggedIn, function(req, res) {
     res.render("campgrounds/new");
 });
 
@@ -89,5 +96,14 @@ router.get("/campgrounds/:id", function(req, res) {
 
 
 });
+
+function isLoggedIn(req, res, next) {
+    console.log("authentication starting")
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect("/login");
+
+}
 
 module.exports = router;
