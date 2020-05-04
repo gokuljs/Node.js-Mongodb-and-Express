@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var campground = require("../models/campground");
 //campground routes 
+
 router.get("/campgrounds", function(req, res) {
 
     // getting all the data from database 
