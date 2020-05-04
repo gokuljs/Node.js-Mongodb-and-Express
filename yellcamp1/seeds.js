@@ -51,7 +51,7 @@ function seeddb() {
         //                     } else {
         //                         campground.comments.push(comment);
         //                         campground.save();
-        //                         console.log("new comment created");.,c.;,;,c;x,;x,;x,cx;,cx;,cx,
+        //                         console.log("new comment created")
         //                     }
         //                 });
         //             }
