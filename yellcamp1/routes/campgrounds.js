@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var campground = require("../models/campground");
+
 //campground routes 
 
 router.get("/campgrounds", function(req, res) {
@@ -96,6 +97,44 @@ router.get("/campgrounds/:id", function(req, res) {
 
 
 });
+
+// edit campground route
+router.get("/campgrounds/:id/edit", function(req, res) {
+
+    console.log(req.params.id);
+    campground.findById(req.params.id, function(err, foundcampground) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(foundcampground);
+            res.render("campgrounds/edit", { campground: foundcampground })
+        }
+
+
+    });
+
+
+    // res.send("edit campground rout");
+
+});
+
+
+router.put("/campgrounds/:id", function(req, res) {
+    console.log("put request")
+    console.log(req.body.campground);
+
+    campground.findByIdAndUpdate(req.params.id, req.body.campground, function(err, updatecampground) {
+        if (err) {
+            console.log(err);
+            // res.redirect("/");
+        } else {
+            res.redirect("/campgrounds/" + req.params.id);
+        }
+    })
+
+});
+// update campground route 
+
 
 function isLoggedIn(req, res, next) {
     console.log("authentication starting")

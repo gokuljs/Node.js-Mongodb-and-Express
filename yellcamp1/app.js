@@ -7,7 +7,8 @@ var express = require("express"),
     passport = require("passport"),
     localStratergy = require("passport-local"),
     user = require("./models/user"),
-    seeddb = require("./seeds");
+    seeddb = require("./seeds"),
+    methodoverride = require("method-override");
 
 
 var commentroutes = require("./routes/comments"),
@@ -23,6 +24,7 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 // dirname refers to the directory name to the script was running 
 console.log(__dirname);
+app.use(methodoverride("_method"));
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
