@@ -34,11 +34,15 @@
                                     <%= campground.desc %>
                                 </p>
 
+                                <a href="/campgrounds/<%=campground._id%>/edit" style="float: left; width: 100px;" class="btn btn-warning">Edit</a>
+
+
                                 <p> <em>submitted by  <%= campground.author.username %></em>
 
                                 </p>
                     </div>
                     </br>
+
                 </div>
 
                 <sectiont class="show-comment">
