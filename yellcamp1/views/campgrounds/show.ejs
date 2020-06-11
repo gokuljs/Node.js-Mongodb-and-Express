@@ -33,8 +33,12 @@
                                     </br>
                                     <%= campground.desc %>
                                 </p>
-
-                                <a href="/campgrounds/<%=campground._id%>/edit" style="float: left; width: 100px;" class="btn btn-warning">Edit</a>
+                                <div style="display:block;" class="d-flex flex-row">
+                                    <a href="/campgrounds/<%=campground._id%>/edit" style="float: left; width: 100px;" class="btn btn-warning">Edit</a>
+                                    <form method="POST" action="/campgrounds/<%=campground._id%>?_method=DELETE">
+                                        <button class="btn btn-danger" style="float: inline-end;margin-left: 10px;width: 100px;">Delete</button>
+                                    </form>
+                                </div>
 
 
                                 <p> <em>submitted by  <%= campground.author.username %></em>
