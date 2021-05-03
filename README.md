@@ -1,5 +1,7 @@
 # backend
-repo is for getting started with backend
+<p align="center">
+ <img height="150px" src="https://user-images.githubusercontent.com/51263906/116891353-39ac0980-ac4c-11eb-9943-88aa7de3645a.png"/>
+</p>
 
 # setting up environment 
 https://zarkom.net/blogs/windows-local-coding-environment-1204 \
